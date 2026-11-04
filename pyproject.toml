@@ -1,5 +1,5 @@
 [project]
-name = "qwen3-architecture-from-scratch"
+name = "qwen3-from-scratch"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -7,10 +7,14 @@ authors = [
     { name = "allali-hamza", email = "hamzaallali7002@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pytest>=9.2.0",
+    "torch>=2.15.0",
+    "transformers>=5.22.1",
+]
 
 [project.scripts]
-qwen3-architecture-from-scratch = "qwen3_architecture_from_scratch:main"
+qwen3-from-scratch = "qwen3_from_scratch:main"
 
 [build-system]
 requires = ["uv_build>=0.13.4,<0.14.0"]
