@@ -26,3 +26,13 @@ class TransformerBackbone(nn.Module):
         x = self.norm(x)
 
         return x
+
+
+class CausalLanguageModel(nn.Module):
+    def __init__(self, transformer: TransformerBackbone):
+        super().__init__()
+        self.transformer = transformer
+
+    def forward(self, x, mask, position_ids):
+        logits = self.transformer(x, mask, position_ids) @ self.transformer.embedding.weight.T
+        return logits
